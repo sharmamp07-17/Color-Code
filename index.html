@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colou Code Page</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    transition: 0.5s;
+  }
+  .marquee{
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: gainsboro;
+  }
+  .container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .color-box {
+    width: 350px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(97, 97, 97, 0.5);
+    box-shadow: 0 0 15px goldenrod;
+    backdrop-filter: blur(8px);
+    border: none;
+    border-radius: 5px;
+  }
+
+  h3 {
+    color: #fff;
+    letter-spacing: 1.5px;
+    font-size: 22px;
+    padding-bottom: 10px;
+  }
+
+  button {
+    width: 100% !important;
+    padding: 10px 0;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left">Here are you get color code for any color. You just click on 'Next' button and explore color(with colorcode).</marquee>
+  </div>
+  <div class="container">
+    <div class="color-box">
+      <h3 id="colorcode"></h3>
+      <button onclick="Next()">Next</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  const colorCode = document.getElementById('colorcode');
+  function Next() {
+    let colorNumber = Math.floor(Math.random() * 16777215);
+    let colorcode = "#" + colorNumber.toString(16);
+    document.body.style.backgroundColor = colorcode
+    colorCode.innerText = colorcode;
+  };
+
+  Next();
+</script>
+
+</html>
